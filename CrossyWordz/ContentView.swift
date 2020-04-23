@@ -1,79 +1,137 @@
-//
 //  ContentView.swift
-//  CrossyWordz
+//  CrossWord
 //
-//  Created by Tyler Goodman on 4/20/20.
-//  Copyright © 2020 Tyler Goodman. All rights reserved.
+//  Created by CSUFTitan on 4/22/20.
+//  Copyright © 2020 Waleed Ali. All rights reserved.
 //
+
 
 import SwiftUI
 
 struct ContentView: View {
-    
-    init() {
-        //TEST DATA
-        let row1 = [textCell(character: "T", tag:1), textCell(character: "A", tag:2), textCell(character: "B", tag:3), textCell(character: "", tag:4), textCell(character: "", tag:5)]
-        let row2 = [textCell(character: "T", tag:6), textCell(character: "A", tag:7), textCell(character: "B", tag:8), textCell(character: "", tag:9), textCell(character: "", tag:10)]
-        let row3 = [textCell(character: "T", tag:11), textCell(character: "A", tag:12), textCell(character: "B", tag:13), textCell(character: "", tag:14), textCell(character: "", tag:15)]
-        let row4 = [textCell(character: "T", tag:16), textCell(character: "A", tag:17), textCell(character: "B", tag:18), textCell(character: "", tag:19), textCell(character: "", tag:20)]
-        _matrix = State(initialValue: [row1, row2, row3, row4])
-    }
-    
-    @State var matrix: [[textCell]]
+let crossword1 = [[cellInfo(letter: "c", gridNumber: 1,firstLetter: 1, rowNum: 1, colNum: 1),cellInfo(letter: "a", gridNumber: 2,firstLetter: 0, rowNum: 1, colNum: 2),cellInfo(letter: "t", gridNumber: 3,firstLetter: 1, rowNum: 1, colNum: 3)],[cellInfo(letter: "0", gridNumber: 4,firstLetter: 0, rowNum: 2, colNum: 1),cellInfo(letter: "t", gridNumber: 5,firstLetter: 0, rowNum: 2, colNum: 2),cellInfo(letter: "0", gridNumber: 6,firstLetter: 0, rowNum: 2, colNum: 3)],[cellInfo(letter: "b", gridNumber: 7,firstLetter: 1, rowNum: 3, colNum: 1),cellInfo(letter: "e", gridNumber: 8,firstLetter: 0, rowNum: 3, colNum: 2),cellInfo(letter: "e", gridNumber: 9,firstLetter: 0, rowNum: 3, colNum: 3)]]
+    @EnvironmentObject var controller: Buttons
+
     
     var body: some View {
-        VStack(alignment: .leading){
-            HStack(alignment: .top, spacing: CGFloat(0.5)){
-                ForEach(0...matrix.count, id: \.self) {
-                    self.matrix[0][$0]
+            GeometryReader
+            {geometry in
+                VStack
+                {
+                    Text("Switcher")
+                        .onTapGesture {
+                            self.controller.right.toggle()
+                    }
+                    ForEach(self.crossword1, id: \.self)
+                    {line in
+                        HStack
+                        {
+                            ForEach(line, id: \.self )
+                            {cellInf in
+                                WordCellView(cellInformation: cellInf, geometry: geometry)
+                            }
+                        }
+                    }
                 }
-            }
-            HStack(alignment: .top, spacing: CGFloat(0.5)){
-                ForEach(0...matrix.count, id: \.self) {
-                    self.matrix[1][$0]
-                }
-            }
-            HStack(alignment: .top, spacing: CGFloat(0.5)){
-                ForEach(0...matrix.count, id: \.self) {
-                    self.matrix[2][$0]
-                }
-            }
-            HStack(alignment: .top, spacing: CGFloat(0.5)){
-                ForEach(0...matrix.count, id: \.self) {
-                    self.matrix[3][$0]
-                }
+
+
             }
         }
-    }
+
+    
 }
 
 
-struct textCell: View {
+struct WordCellView: View {
     
-    init(character: String, tag: Int) {
-        _character = State(initialValue: character)
-        _tag = State(initialValue: tag)
+    init(cellInformation: cellInfo, geometry: GeometryProxy) {
+        _character = State(initialValue: cellInformation.letter)
+        _tag = State(initialValue: cellInformation.gridNumber)
+        self.geometry = geometry
+        if cellInformation.letter != "0"
+        {
+            active = true
+        }
+        self.row = cellInformation.rowNum
+        self.col = cellInformation.colNum
     }
-    
+    @EnvironmentObject var controller: Buttons
+    var active = false
+    var geometry: GeometryProxy
     @State var character = ""
     @State var userInput = ""
     @State var tag: Int
     let characterLimit = 1
-    
+    var row: Int
+    var col: Int
     
     
     var body: some View {
-        SATextField(tag: self.tag, placeholder: "", changeHandler: { (newString) in
-            if(newString.count > 1){
-                
+        Rectangle()
+            .foregroundColor(self.active == true ? Color(.blue) : Color(.black))
+            .overlay(VStack
+            {
+                Spacer()
+               HStack
+                {
+                    Spacer()
+                    SATextField(tag: self.tag, placeholder: "", changeHandler: { (newString) in
+                        if(newString.count > 1){
+                            
+                        }
+                    }, onCommitHandler: {
+                        print("done!")
+                        }).offset(x: 5)//.frame(width: 10, height: 5)
+                    Spacer()
+                }
+                Spacer()
+
+            }, alignment: .center)//LetterView(letter: self.letter, active: self.active))
+            .frame(width: geometry.size.width/10, height: geometry.size.height/20)
+            .shadow(color: self.selected() == true ? Color(.red) : Color(.black), radius: 4, x: -4, y: -4)
+            .shadow(color: self.selected() == true ? Color(.red) : Color(.black), radius: 4, x: 4, y: 4)
+            .shadow(color: self.focused() == true ? Color(.yellow) : Color(.white), radius: 8, x: 8, y: 8)
+            .onTapGesture
+            {
+                // make first responder
+                self.controller.colSelected = self.col
+                self.controller.rowSelected = self.row
             }
-        }, onCommitHandler: {
-            print("done!")
-        })
-            .frame(width: 65, height: 50, alignment: .center)
-            .background(Color.blue)
-            .foregroundColor(Color.white)
-            .multilineTextAlignment(.center)
+            
+    }
+    func selected() -> Bool
+    {
+        if self.controller.right == true
+        {
+            if self.controller.rowSelected == self.row
+            {
+                return true
+            }
+        }
+        else if self.controller.right == false
+        {
+            if self.controller.colSelected == self.col
+            {
+                return true
+            }
+        }
+        return false
+    }
+    func focused() -> Bool
+    {
+        if self.controller.rowSelected == self.row && self.controller.colSelected == self.col
+        {
+            return true
+        }
+        return false
     }
 }
 
+
+extension String
+{
+    subscript(i: Int) -> String
+    {
+        return String(self[index(startIndex, offsetBy: i)])
+    }
+}

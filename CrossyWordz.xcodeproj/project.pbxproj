@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A7531FD2451D80100C5DD75 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7531FC2451D80100C5DD75 /* Controller.swift */; };
 		D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14A244E93B9005585F5 /* AppDelegate.swift */; };
 		D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14C244E93B9005585F5 /* SceneDelegate.swift */; };
 		D464A14F244E93B9005585F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14E244E93B9005585F5 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A7531FC2451D80100C5DD75 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		D464A147244E93B9005585F5 /* CrossyWordz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossyWordz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D464A14A244E93B9005585F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D464A14C244E93B9005585F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				D464A14A244E93B9005585F5 /* AppDelegate.swift */,
 				D464A14C244E93B9005585F5 /* SceneDelegate.swift */,
 				D464A14E244E93B9005585F5 /* ContentView.swift */,
+				7A7531FC2451D80100C5DD75 /* Controller.swift */,
 				D464A150244E93B9005585F5 /* Assets.xcassets */,
 				D464A155244E93B9005585F5 /* LaunchScreen.storyboard */,
 				D464A158244E93B9005585F5 /* Info.plist */,
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7531FD2451D80100C5DD75 /* Controller.swift in Sources */,
 				D4EDA05C24500564002AD172 /* CustomTextField.swift in Sources */,
 				D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */,
 				D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */,
