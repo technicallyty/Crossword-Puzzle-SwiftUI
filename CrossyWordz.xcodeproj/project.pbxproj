@@ -15,6 +15,7 @@
 		D464A157244E93B9005585F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D464A155244E93B9005585F5 /* LaunchScreen.storyboard */; };
 		D464A162244E93BA005585F5 /* CrossyWordzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A161244E93BA005585F5 /* CrossyWordzTests.swift */; };
 		D464A16D244E93BA005585F5 /* CrossyWordzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A16C244E93BA005585F5 /* CrossyWordzUITests.swift */; };
+		D4EDA05C24500564002AD172 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EDA05B24500564002AD172 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D464A168244E93BA005585F5 /* CrossyWordzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossyWordzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D464A16C244E93BA005585F5 /* CrossyWordzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossyWordzUITests.swift; sourceTree = "<group>"; };
 		D464A16E244E93BA005585F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4EDA05B24500564002AD172 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D464A155244E93B9005585F5 /* LaunchScreen.storyboard */,
 				D464A158244E93B9005585F5 /* Info.plist */,
 				D464A152244E93B9005585F5 /* Preview Content */,
+				D4EDA05B24500564002AD172 /* CustomTextField.swift */,
 			);
 			path = CrossyWordz;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4EDA05C24500564002AD172 /* CustomTextField.swift in Sources */,
 				D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */,
 				D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */,
 				D464A14F244E93B9005585F5 /* ContentView.swift in Sources */,
