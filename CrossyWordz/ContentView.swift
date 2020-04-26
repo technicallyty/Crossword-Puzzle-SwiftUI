@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct ContentView: View {
-let crossword1 = [[cellInfo(letter: "c", gridNumber: 1,firstLetter: 1, rowNum: 1, colNum: 1),cellInfo(letter: "a", gridNumber: 2,firstLetter: 0, rowNum: 1, colNum: 2),cellInfo(letter: "t", gridNumber: 3,firstLetter: 1, rowNum: 1, colNum: 3)],[cellInfo(letter: "0", gridNumber: 4,firstLetter: 0, rowNum: 0, colNum: 0),cellInfo(letter: "t", gridNumber: 5,firstLetter: 0, rowNum: 2, colNum: 2),cellInfo(letter: "0", gridNumber: 6,firstLetter: 0, rowNum: 0, colNum: 0)],[cellInfo(letter: "b", gridNumber: 7,firstLetter: 1, rowNum: 3, colNum: 1),cellInfo(letter: "e", gridNumber: 8,firstLetter: 0, rowNum: 3, colNum: 2),cellInfo(letter: "e", gridNumber: 9,firstLetter: 0, rowNum: 3, colNum: 3)]]
+    let crossword1 = [[cellInfo(letter: "c", gridNumber: 1,firstLetter: 1, rowNum: 1, colNum: 1, HorVert: HVWords(rowWord: "Cat", colWord: "0", rowWordHint: "Meow", colWordHint: "0")),cellInfo(letter: "a", gridNumber: 2,firstLetter: 0, rowNum: 1, colNum: 2, HorVert: HVWords(rowWord: "Cat", colWord: "Ate", rowWordHint: "Meow", colWordHint: "Yum")),cellInfo(letter: "t", gridNumber: 3,firstLetter: 1, rowNum: 1, colNum: 3, HorVert: HVWords(rowWord: "Cat", colWord: "0", rowWordHint: "Meow", colWordHint: "0"))],[cellInfo(letter: "0", gridNumber: 4,firstLetter: 0, rowNum: 0, colNum: 0, HorVert: HVWords(rowWord: "0", colWord: "0", rowWordHint: "0", colWordHint: "0")),cellInfo(letter: "t", gridNumber: 5,firstLetter: 0, rowNum: 2, colNum: 2, HorVert: HVWords(rowWord: "0", colWord: "Ate", rowWordHint: "0", colWordHint: "Yum")),cellInfo(letter: "0", gridNumber: 6,firstLetter: 0, rowNum: 0, colNum: 0, HorVert: HVWords(rowWord: "0", colWord: "0", rowWordHint: "0", colWordHint: "0"))],[cellInfo(letter: "b", gridNumber: 7,firstLetter: 1, rowNum: 3, colNum: 1, HorVert: HVWords(rowWord: "Bee", colWord: "0", rowWordHint: "Buzz", colWordHint: "0")),cellInfo(letter: "e", gridNumber: 8,firstLetter: 0, rowNum: 3, colNum: 2, HorVert: HVWords(rowWord: "Bee", colWord: "Ate", rowWordHint: "Buzz", colWordHint: "Yum")),cellInfo(letter: "e", gridNumber: 9,firstLetter: 0, rowNum: 3, colNum: 3, HorVert: HVWords(rowWord: "Bee", colWord: "0", rowWordHint: "Buzz", colWordHint: "0"))]]
     @EnvironmentObject var controller: Buttons
 
     
@@ -19,6 +19,7 @@ let crossword1 = [[cellInfo(letter: "c", gridNumber: 1,firstLetter: 1, rowNum: 1
             {geometry in
                 VStack
                 {
+                    HintView(geometry: geometry)
                     Text("Switcher")
                         .onTapGesture
                     {
@@ -49,6 +50,7 @@ struct WordCellView: View {
     init(cellInformation: cellInfo, geometry: GeometryProxy) {
         _character = State(initialValue: cellInformation.letter)
         _tag = State(initialValue: cellInformation.gridNumber)
+
         self.geometry = geometry
         if cellInformation.letter != "0"
         {
@@ -56,6 +58,8 @@ struct WordCellView: View {
         }
         self.row = cellInformation.rowNum
         self.col = cellInformation.colNum
+        self.rowHint = cellInformation.HorVert.rowWordHint
+        self.colHint = cellInformation.HorVert.colWordHint
     }
     @EnvironmentObject var controller: Buttons
     var active = false
@@ -66,6 +70,9 @@ struct WordCellView: View {
     let characterLimit = 1
     var row: Int
     var col: Int
+    var rowHint = ""
+    var colHint =  ""
+
     
     
     var body: some View {
@@ -99,6 +106,7 @@ struct WordCellView: View {
             .onTapGesture
             {
                 // make first responder
+                self.SetHint()
                 self.controller.colSelected = self.col
                 self.controller.rowSelected = self.row
             }
@@ -130,6 +138,29 @@ struct WordCellView: View {
         }
         return false
     }
+    func SetHint()
+    {
+
+        if self.controller.right == true
+        {
+            self.controller.hint = self.rowHint
+        }
+        if self.controller.right == false
+        {
+            self.controller.hint = self.colHint
+        }
+    }
+}
+struct HintView: View {
+    
+    @EnvironmentObject var controller: Buttons
+    var geometry: GeometryProxy
+    
+    var body: some View
+    {
+        Text(self.controller.hint)
+    }
+
 }
 
 
