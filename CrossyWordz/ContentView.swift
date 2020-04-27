@@ -58,8 +58,7 @@ struct WordCellView: View {
         }
         self.row = cellInformation.rowNum
         self.col = cellInformation.colNum
-        self.rowHint = cellInformation.HorVert.rowWordHint
-        self.colHint = cellInformation.HorVert.colWordHint
+        self.cellHint = cellInformation.HorVert
     }
     @EnvironmentObject var controller: Buttons
     var active = false
@@ -70,8 +69,7 @@ struct WordCellView: View {
     let characterLimit = 1
     var row: Int
     var col: Int
-    var rowHint = ""
-    var colHint =  ""
+    var cellHint: HVWords
 
     
     
@@ -140,15 +138,7 @@ struct WordCellView: View {
     }
     func SetHint()
     {
-
-        if self.controller.right == true
-        {
-            self.controller.hint = self.rowHint
-        }
-        if self.controller.right == false
-        {
-            self.controller.hint = self.colHint
-        }
+        self.controller.hint = self.cellHint
     }
 }
 struct HintView: View {
@@ -158,7 +148,19 @@ struct HintView: View {
     
     var body: some View
     {
-        Text(self.controller.hint)
+        VStack
+        {
+                if self.controller.right == true
+                {
+                    Text(self.controller.hint.rowWordHint)
+                }
+                else
+                {
+                    Text(self.controller.hint.colWordHint)
+                }
+                
+        }
+
     }
 
 }

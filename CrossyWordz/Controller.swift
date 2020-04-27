@@ -14,7 +14,7 @@ class Buttons: ObservableObject
       @Published var right = true
       @Published var rowSelected = -1
       @Published var colSelected = -1
-      @Published var hint = ""
+      @Published var hint = HVWords(rowWord: "", colWord: "", rowWordHint: "", colWordHint: "")
 
 
 
