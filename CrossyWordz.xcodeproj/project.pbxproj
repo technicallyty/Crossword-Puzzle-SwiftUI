@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BF9AEA6E40E74A28FC93C3D /* Pods_CrossyWordz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645E4756188B2C4C9F9A12DD /* Pods_CrossyWordz.framework */; };
 		7A7531FD2451D80100C5DD75 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7531FC2451D80100C5DD75 /* Controller.swift */; };
+		B4BFAC9097D50030A704E9C5 /* Pods_CrossyWordz_CrossyWordzUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7820D692126FAFF8D8427621 /* Pods_CrossyWordz_CrossyWordzUITests.framework */; };
 		D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14A244E93B9005585F5 /* AppDelegate.swift */; };
 		D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14C244E93B9005585F5 /* SceneDelegate.swift */; };
 		D464A14F244E93B9005585F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14E244E93B9005585F5 /* ContentView.swift */; };
@@ -16,7 +18,7 @@
 		D464A157244E93B9005585F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D464A155244E93B9005585F5 /* LaunchScreen.storyboard */; };
 		D464A162244E93BA005585F5 /* CrossyWordzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A161244E93BA005585F5 /* CrossyWordzTests.swift */; };
 		D464A16D244E93BA005585F5 /* CrossyWordzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A16C244E93BA005585F5 /* CrossyWordzUITests.swift */; };
-		D4EDA05C24500564002AD172 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EDA05B24500564002AD172 /* CustomTextField.swift */; };
+		D628ECF1F6567EC933D2096B /* Pods_CrossyWordzTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EFFC4E02C46F94DD19CE5E /* Pods_CrossyWordzTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04EFFC4E02C46F94DD19CE5E /* Pods_CrossyWordzTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossyWordzTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		224248AEB9EB0A56CC60C5DD /* Pods-CrossyWordz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordz.release.xcconfig"; path = "Target Support Files/Pods-CrossyWordz/Pods-CrossyWordz.release.xcconfig"; sourceTree = "<group>"; };
+		330FED7393A78B43C2C95F4A /* Pods-CrossyWordz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordz.debug.xcconfig"; path = "Target Support Files/Pods-CrossyWordz/Pods-CrossyWordz.debug.xcconfig"; sourceTree = "<group>"; };
+		4E371C0CACA292CF3276D980 /* Pods-CrossyWordz-CrossyWordzUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordz-CrossyWordzUITests.debug.xcconfig"; path = "Target Support Files/Pods-CrossyWordz-CrossyWordzUITests/Pods-CrossyWordz-CrossyWordzUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		63A77E4C9763B7A7AB313E02 /* Pods-CrossyWordzTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordzTests.release.xcconfig"; path = "Target Support Files/Pods-CrossyWordzTests/Pods-CrossyWordzTests.release.xcconfig"; sourceTree = "<group>"; };
+		645E4756188B2C4C9F9A12DD /* Pods_CrossyWordz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossyWordz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7820D692126FAFF8D8427621 /* Pods_CrossyWordz_CrossyWordzUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossyWordz_CrossyWordzUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7531FC2451D80100C5DD75 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		B9BDF427C9B622806D1FB794 /* Pods-CrossyWordzTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordzTests.debug.xcconfig"; path = "Target Support Files/Pods-CrossyWordzTests/Pods-CrossyWordzTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D464A147244E93B9005585F5 /* CrossyWordz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossyWordz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D464A14A244E93B9005585F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D464A14C244E93B9005585F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +62,7 @@
 		D464A168244E93BA005585F5 /* CrossyWordzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossyWordzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D464A16C244E93BA005585F5 /* CrossyWordzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossyWordzUITests.swift; sourceTree = "<group>"; };
 		D464A16E244E93BA005585F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4EDA05B24500564002AD172 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		DC39758F5FB60C461DCD253A /* Pods-CrossyWordz-CrossyWordzUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordz-CrossyWordzUITests.release.xcconfig"; path = "Target Support Files/Pods-CrossyWordz-CrossyWordzUITests/Pods-CrossyWordz-CrossyWordzUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF9AEA6E40E74A28FC93C3D /* Pods_CrossyWordz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D628ECF1F6567EC933D2096B /* Pods_CrossyWordzTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +86,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BFAC9097D50030A704E9C5 /* Pods_CrossyWordz_CrossyWordzUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071F52D00C6197D65A6136EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				330FED7393A78B43C2C95F4A /* Pods-CrossyWordz.debug.xcconfig */,
+				224248AEB9EB0A56CC60C5DD /* Pods-CrossyWordz.release.xcconfig */,
+				4E371C0CACA292CF3276D980 /* Pods-CrossyWordz-CrossyWordzUITests.debug.xcconfig */,
+				DC39758F5FB60C461DCD253A /* Pods-CrossyWordz-CrossyWordzUITests.release.xcconfig */,
+				B9BDF427C9B622806D1FB794 /* Pods-CrossyWordzTests.debug.xcconfig */,
+				63A77E4C9763B7A7AB313E02 /* Pods-CrossyWordzTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D464A13E244E93B9005585F5 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +113,8 @@
 				D464A160244E93BA005585F5 /* CrossyWordzTests */,
 				D464A16B244E93BA005585F5 /* CrossyWordzUITests */,
 				D464A148244E93B9005585F5 /* Products */,
+				071F52D00C6197D65A6136EE /* Pods */,
+				F408246140FB271F91471F48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,7 +139,6 @@
 				D464A155244E93B9005585F5 /* LaunchScreen.storyboard */,
 				D464A158244E93B9005585F5 /* Info.plist */,
 				D464A152244E93B9005585F5 /* Preview Content */,
-				D4EDA05B24500564002AD172 /* CustomTextField.swift */,
 			);
 			path = CrossyWordz;
 			sourceTree = "<group>";
@@ -142,6 +169,16 @@
 			path = CrossyWordzUITests;
 			sourceTree = "<group>";
 		};
+		F408246140FB271F91471F48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				645E4756188B2C4C9F9A12DD /* Pods_CrossyWordz.framework */,
+				7820D692126FAFF8D8427621 /* Pods_CrossyWordz_CrossyWordzUITests.framework */,
+				04EFFC4E02C46F94DD19CE5E /* Pods_CrossyWordzTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D464A171244E93BA005585F5 /* Build configuration list for PBXNativeTarget "CrossyWordz" */;
 			buildPhases = (
+				B405CDB753EF236DF4529BAD /* [CP] Check Pods Manifest.lock */,
 				D464A143244E93B9005585F5 /* Sources */,
 				D464A144244E93B9005585F5 /* Frameworks */,
 				D464A145244E93B9005585F5 /* Resources */,
+				2B575F79F8B939EAFD43CAD3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D464A174244E93BA005585F5 /* Build configuration list for PBXNativeTarget "CrossyWordzTests" */;
 			buildPhases = (
+				464D9C48ADF92FB18CEC455D /* [CP] Check Pods Manifest.lock */,
 				D464A159244E93BA005585F5 /* Sources */,
 				D464A15A244E93BA005585F5 /* Frameworks */,
 				D464A15B244E93BA005585F5 /* Resources */,
@@ -184,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D464A177244E93BA005585F5 /* Build configuration list for PBXNativeTarget "CrossyWordzUITests" */;
 			buildPhases = (
+				C34B2A455DBA83DC52CCD707 /* [CP] Check Pods Manifest.lock */,
 				D464A164244E93BA005585F5 /* Sources */,
 				D464A165244E93BA005585F5 /* Frameworks */,
 				D464A166244E93BA005585F5 /* Resources */,
+				A5EF847370CC748CC85CC523 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,13 +310,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B575F79F8B939EAFD43CAD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossyWordz/Pods-CrossyWordz-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossyWordz/Pods-CrossyWordz-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrossyWordz/Pods-CrossyWordz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		464D9C48ADF92FB18CEC455D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossyWordzTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5EF847370CC748CC85CC523 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossyWordz-CrossyWordzUITests/Pods-CrossyWordz-CrossyWordzUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossyWordz-CrossyWordzUITests/Pods-CrossyWordz-CrossyWordzUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrossyWordz-CrossyWordzUITests/Pods-CrossyWordz-CrossyWordzUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B405CDB753EF236DF4529BAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossyWordz-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C34B2A455DBA83DC52CCD707 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossyWordz-CrossyWordzUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D464A143244E93B9005585F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7A7531FD2451D80100C5DD75 /* Controller.swift in Sources */,
-				D4EDA05C24500564002AD172 /* CustomTextField.swift in Sources */,
 				D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */,
 				D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */,
 				D464A14F244E93B9005585F5 /* ContentView.swift in Sources */,
@@ -440,6 +584,7 @@
 		};
 		D464A172244E93BA005585F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 330FED7393A78B43C2C95F4A /* Pods-CrossyWordz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,6 +605,7 @@
 		};
 		D464A173244E93BA005585F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 224248AEB9EB0A56CC60C5DD /* Pods-CrossyWordz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -480,6 +626,7 @@
 		};
 		D464A175244E93BA005585F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9BDF427C9B622806D1FB794 /* Pods-CrossyWordzTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +649,7 @@
 		};
 		D464A176244E93BA005585F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63A77E4C9763B7A7AB313E02 /* Pods-CrossyWordzTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -524,6 +672,7 @@
 		};
 		D464A178244E93BA005585F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E371C0CACA292CF3276D980 /* Pods-CrossyWordz-CrossyWordzUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +693,7 @@
 		};
 		D464A179244E93BA005585F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC39758F5FB60C461DCD253A /* Pods-CrossyWordz-CrossyWordzUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

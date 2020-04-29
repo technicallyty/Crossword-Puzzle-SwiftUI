@@ -5,18 +5,19 @@
 //  Created by CSUFTitan on 4/23/20.
 //  Copyright © 2020 Waleed Ali. All rights reserved.
 //
-
 import SwiftUI
 
 class Buttons: ObservableObject
 {
 
+      @Published var rowLimit = 3
+      @Published var colLimit = 3
       @Published var right = true
       @Published var rowSelected = -1
       @Published var colSelected = -1
       @Published var hint = HVWords(rowWord: "", colWord: "", rowWordHint: "", colWordHint: "")
-
-
+    @Published var catCrossWord = [[false,false,false],[nil,false,nil],[false,false,false]]
+    @Published var showWrong = false
 
 
     
@@ -54,3 +55,4 @@ struct HVWords: Hashable
         self.colWordHint = colWordHint
     }
 }
+
