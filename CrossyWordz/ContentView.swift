@@ -100,7 +100,8 @@ struct WordCellView: View {
                                 self.AnswerCheck()
                            }
                         })
-                            .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row) { content in
+                            .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row)
+                            { content in
                             content.introspectTextField
                             { textField in
                                 textField.becomeFirstResponder()
@@ -135,6 +136,8 @@ struct WordCellView: View {
                 self.controller.colSelected = self.col
                 self.controller.rowSelected = self.row
                 self.userInput = ""
+                self.AnswerCheck()
+
             }
             
     }
