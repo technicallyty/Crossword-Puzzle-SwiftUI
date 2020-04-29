@@ -19,31 +19,26 @@ struct ContentView: View {
     @State var tester = false
     
     var body: some View {
-            GeometryReader
+        GeometryReader
             {geometry in
-                VStack
-                {
-                    AnswerCheckerView(geometry: geometry)
-                    HintView(geometry: geometry)
-                    Text("Switcher")
-                        .onTapGesture
-                    {
-                            self.controller.right.toggle()
-                    }
-                    ForEach(self.crossword1, id: \.self)
-                    {line in
-                        HStack
-                        {
-                            ForEach(line, id: \.self )
-                            {cellInf in
-                                WordCellView(cellInformation: cellInf, geometry: geometry)
+                VStack {
+                        AnswerCheckerView(geometry: geometry)
+                        HintView(geometry: geometry)
+                        Text("Switcher")
+                            .onTapGesture {
+                                self.controller.right.toggle()
+                        }
+                        ForEach(self.crossword1, id: \.self) { line in
+                            HStack {
+                                    ForEach(line, id: \.self ) { cellInf in
+                                        WordCellView(cellInformation: cellInf, geometry: geometry)
+                                    }
                             }
                         }
-                    }
                 }
-            }
         }
-
+    }
+    
     
 }
 
@@ -53,10 +48,9 @@ struct WordCellView: View {
     init(cellInformation: cellInfo, geometry: GeometryProxy) {
         _character = State(initialValue: cellInformation.letter)
         _tag = State(initialValue: cellInformation.gridNumber)
-
+        
         self.geometry = geometry
-        if cellInformation.letter != "0"
-        {
+        if cellInformation.letter != "0" {
             active = true
         }
         self.row = cellInformation.rowNum
@@ -73,99 +67,82 @@ struct WordCellView: View {
     var row: Int
     var col: Int
     var cellHint: HVWords
-
+    
     
     
     var body: some View {
         Rectangle()
             .foregroundColor(self.active == true ? Color(.blue) : Color(.black))
-            .overlay(VStack
-            {
-               Spacer()
-               HStack
-                {
+            .overlay(VStack {
                     Spacer()
-                    if self.row != 0 && self.col != 0
-                    {
-                        TextField("", text: self.$userInput, onEditingChanged: { (changed) in
-                           if changed
-                           {
-                               print("Editing")
-                            
-                           }
-                           else
-                           {
-                                print("Changed")
-                                self.ChangeCell()
-                                self.AnswerCheck()
-                           }
-                        })
-                            .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row)
-                            { content in
-                            content.introspectTextField
-                            { textField in
-                                textField.becomeFirstResponder()
+                    HStack {
+                            Spacer()
+                            if self.row != 0 && self.col != 0 {
+                                TextField("", text: self.$userInput, onEditingChanged: { (changed) in
+                                    if changed {
+                                        print("Editing")
+                                    }
+                                    else {
+                                        print("Changed")
+                                        self.ChangeCell()
+                                        self.AnswerCheck()
+                                    }
+                                })
+                                    .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row) { content in
+                                        content.introspectTextField
+                                            { textField in
+                                                textField.becomeFirstResponder()
+                                        }
+                                }
+                                .onReceive(self.userInput.publisher.collect()) {
+                                    self.userInput = String($0.prefix(1)).uppercased()
+                                }
                             }
-                        }
-                        .onReceive(self.userInput.publisher.collect())
-                        {
-                            self.userInput = String($0.prefix(1)).uppercased()
-                        }
+                            Spacer()
                     }
                     Spacer()
-                }
-                Spacer()
-
+                    
             }, alignment: .center)//LetterView(letter: self.letter, active: self.active))
             .frame(width: geometry.size.width/10, height: geometry.size.height/20)
             .if(self.selected()) { content in
                 content.modifier(HighlightRowORCol())
-            }
-            .if(self.focused()) { content in
-                content.modifier(HighlightSelf())
-            }
-            .if(self.CheckRight()) { content in
-                content.modifier(CorrectAnswerHighlight())
-            }
-            .if(self.CheckWrong()) { content in
-                content.modifier(WrongAnswerHighlight())
-            }
-            .onTapGesture
-            {
+        }
+        .if(self.focused()) { content in
+            content.modifier(HighlightSelf())
+        }
+        .if(self.CheckRight()) { content in
+            content.modifier(CorrectAnswerHighlight())
+        }
+        .if(self.CheckWrong()) { content in
+            content.modifier(WrongAnswerHighlight())
+        }
+        .onTapGesture {
                 self.SetHint()
                 self.controller.colSelected = self.col
                 self.controller.rowSelected = self.row
                 self.userInput = ""
                 self.AnswerCheck()
-
-            }
-            
+                
+        }
+        
     }
-    func selected() -> Bool
-    {
-        if self.row != 0 && self.col != 0
-        {
-            if self.controller.right == true
-            {
-                if self.controller.rowSelected == self.row
-                {
+    func selected() -> Bool {
+        if self.row != 0 && self.col != 0 {
+            if self.controller.right == true {
+                if self.controller.rowSelected == self.row {
                     return true
                 }
             }
-            else if self.controller.right == false
-            {
-                if self.controller.colSelected == self.col
-                {
+            else if self.controller.right == false {
+                if self.controller.colSelected == self.col {
                     return true
                 }
             }
         }
         return false
     }
-    func focused() -> Bool
-    {
-        if self.row != 0 && self.col != 0
-        {
+    func focused() -> Bool {
+        if self.row != 0 && self.col != 0 {
             if self.controller.rowSelected == self.row && self.controller.colSelected == self.col
             {
                 return true
@@ -173,54 +150,39 @@ struct WordCellView: View {
         }
         return false
     }
-    func SetHint()
-    {
+    func SetHint() {
         self.controller.hint = self.cellHint
     }
-    func ChangeCell()
-    {
-        if self.userInput.count != 0
-        {
-            if !self.controller.right
-            {
-                if self.controller.rowLimit != self.controller.rowSelected
-                {
+    func ChangeCell() {
+        if self.userInput.count != 0 {
+            if !self.controller.right {
+                if self.controller.rowLimit != self.controller.rowSelected {
                     self.controller.rowSelected = self.controller.rowSelected + 1
                 }
             }
-            if self.controller.right
-            {
-                if self.controller.colLimit != self.controller.colSelected
-                {
+            if self.controller.right {
+                if self.controller.colLimit != self.controller.colSelected {
                     self.controller.colSelected = self.controller.colSelected + 1
                 }
             }
         }
-
+        
     }
-    func AnswerCheck()
-    {
-        if self.row != 0 && self.col != 0
-        {
-            if self.character == self.userInput
-            {
+    func AnswerCheck() {
+        if self.row != 0 && self.col != 0 {
+            if self.character == self.userInput {
                 self.controller.catCrossWord[self.row - 1][self.col - 1] = true
             }
-            else
-            {
+            else {
                 self.controller.catCrossWord[self.row - 1][self.col - 1] = false
             }
         }
-
+        
     }
-    func CheckRight() -> Bool
-    {
-        if self.row != 0 && self.col != 0
-        {
-            if self.controller.showWrong
-            {
-                if self.controller.catCrossWord[self.row - 1][self.col - 1] == true
-                {
+    func CheckRight() -> Bool {
+        if self.row != 0 && self.col != 0 {
+            if self.controller.showWrong {
+                if self.controller.catCrossWord[self.row - 1][self.col - 1] == true {
                     return true
                 }
             }
@@ -228,19 +190,15 @@ struct WordCellView: View {
         return false
         
     }
-    func CheckWrong() -> Bool
-    {
-        if self.row != 0 && self.col != 0
-        {
-            if self.controller.showWrong
-            {
-                if self.controller.catCrossWord[self.row - 1][self.col - 1] == false
-                {
+    func CheckWrong() -> Bool {
+        if self.row != 0 && self.col != 0 {
+            if self.controller.showWrong {
+                if self.controller.catCrossWord[self.row - 1][self.col - 1] == false {
                     return true
                 }
             }
         }
-
+        
         return false
         
     }
@@ -250,65 +208,55 @@ struct HintView: View {
     @EnvironmentObject var controller: Buttons
     var geometry: GeometryProxy
     
-    var body: some View
-    {
-        VStack
-        {
-                if self.controller.right == true
-                {
-                    if self.controller.hint.rowWordHint == "0"
-                    {
+    var body: some View {
+        VStack {
+                if self.controller.right == true {
+                    if self.controller.hint.rowWordHint == "0" {
                         Text("")
                     }
-                    else
-                    {
+                    else {
                         Text(self.controller.hint.rowWordHint)
                     }
                 }
-                else
-                {
-                    if self.controller.hint.colWordHint == "0"
-                    {
+                else {
+                    if self.controller.hint.colWordHint == "0" {
                         Text("")
                     }
-                    else
-                    {
+                    else {
                         Text(self.controller.hint.colWordHint)
                     }
                 }
                 
         }
-
+        
     }
-
+    
 }
 struct AnswerCheckerView: View {
     
     @EnvironmentObject var controller: Buttons
     var geometry: GeometryProxy
     
-    var body: some View
-    {
+    var body: some View {
         Text("Check Answers")
             .onTapGesture {
                 self.controller.showWrong.toggle()
         }
     }
-
+    
 }
 
 
 extension String
 {
-    subscript(i: Int) -> String
-    {
+    subscript(i: Int) -> String {
         return String(self[index(startIndex, offsetBy: i)])
     }
 }
 
 
 extension View {
-   func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
+    func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
         if conditional {
             return AnyView(content(self))
         } else {
