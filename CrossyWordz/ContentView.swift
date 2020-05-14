@@ -12,24 +12,241 @@ import SwiftUI
 import Introspect
 
 struct ContentView: View {
-    let crossword1 = [[cellInfo(letter: "C", gridNumber: 1,firstLetter: 1, rowNum: 1, colNum: 1, HorVert: HVWords(rowWord: "Cat", colWord: "0", rowWordHint: "Meow", colWordHint: "0")),cellInfo(letter: "A", gridNumber: 2,firstLetter: 0, rowNum: 1, colNum: 2, HorVert: HVWords(rowWord: "Cat", colWord: "Ate", rowWordHint: "Meow", colWordHint: "Yum")),cellInfo(letter: "T", gridNumber: 3,firstLetter: 1, rowNum: 1, colNum: 3, HorVert: HVWords(rowWord: "Cat", colWord: "0", rowWordHint: "Meow", colWordHint: "0"))],[cellInfo(letter: "0", gridNumber: 4,firstLetter: 0, rowNum: 0, colNum: 0, HorVert: HVWords(rowWord: "0", colWord: "0", rowWordHint: "0", colWordHint: "0")),cellInfo(letter: "T", gridNumber: 5,firstLetter: 0, rowNum: 2, colNum: 2, HorVert: HVWords(rowWord: "0", colWord: "Ate", rowWordHint: "0", colWordHint: "Yum")),cellInfo(letter: "0", gridNumber: 6,firstLetter: 0, rowNum: 0, colNum: 0, HorVert: HVWords(rowWord: "0", colWord: "0", rowWordHint: "0", colWordHint: "0"))],[cellInfo(letter: "B", gridNumber: 7,firstLetter: 1, rowNum: 3, colNum: 1, HorVert: HVWords(rowWord: "Bee", colWord: "0", rowWordHint: "Buzz", colWordHint: "0")),cellInfo(letter: "E", gridNumber: 8,firstLetter: 0, rowNum: 3, colNum: 2, HorVert: HVWords(rowWord: "Bee", colWord: "Ate", rowWordHint: "Buzz", colWordHint: "Yum")),cellInfo(letter: "E", gridNumber: 9,firstLetter: 0, rowNum: 3, colNum: 3, HorVert: HVWords(rowWord: "Bee", colWord: "0", rowWordHint: "Buzz", colWordHint: "0"))]]
+    let crossword1 = [[cellInfo(letter: "C", gridNumber: 1,firstLetter: 1, rowNum: 1, colNum: 1, HorVert: HVWords(rowWord: "Cat", colWord: "0", rowWordHint: "Meow", colWordHint: "0")),cellInfo(letter: "A", gridNumber: 2,firstLetter: 0, rowNum: 1, colNum: 2, HorVert: HVWords(rowWord: "Cat", colWord: "Ate", rowWordHint: "Meow", colWordHint: "Yum")),cellInfo(letter: "T", gridNumber: 3,firstLetter: 0, rowNum: 1, colNum: 3, HorVert: HVWords(rowWord: "Cat", colWord: "0", rowWordHint: "Meow", colWordHint: "0"))],[cellInfo(letter: "0", gridNumber: 4,firstLetter: 0, rowNum: 0, colNum: 0, HorVert: HVWords(rowWord: "0", colWord: "0", rowWordHint: "0", colWordHint: "0")),cellInfo(letter: "T", gridNumber: 5,firstLetter: 0, rowNum: 2, colNum: 2, HorVert: HVWords(rowWord: "0", colWord: "Ate", rowWordHint: "0", colWordHint: "Yum")),cellInfo(letter: "0", gridNumber: 6,firstLetter: 0, rowNum: 0, colNum: 0, HorVert: HVWords(rowWord: "0", colWord: "0", rowWordHint: "0", colWordHint: "0"))],[cellInfo(letter: "B", gridNumber: 7,firstLetter: 1, rowNum: 3, colNum: 1, HorVert: HVWords(rowWord: "Bee", colWord: "0", rowWordHint: "Buzz", colWordHint: "0")),cellInfo(letter: "E", gridNumber: 8,firstLetter: 0, rowNum: 3, colNum: 2, HorVert: HVWords(rowWord: "Bee", colWord: "Ate", rowWordHint: "Buzz", colWordHint: "Yum")),cellInfo(letter: "E", gridNumber: 9,firstLetter: 0, rowNum: 3, colNum: 3, HorVert: HVWords(rowWord: "Bee", colWord: "0", rowWordHint: "Buzz", colWordHint: "0"))]]
+//    let crossword2 =
+//    [
+//        [// 1
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//            cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//            cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//2
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//            cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//            cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//            cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        [//13
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//1
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//2
+//        cellInfo(letter: String, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//3
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//4
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//5
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//6
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//7
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//8
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//9
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//10`
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//11
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>)),//12
+//        cellInfo(letter: <#T##String#>, gridNumber: <#T##Int#>, firstLetter: <#T##Int#>, rowNum: <#T##Int#>, colNum: <#T##Int#>, HorVert: HVWords(rowWord: <#T##String#>, colWord: <#T##String#>, rowWordHint: <#T##String#>, colWordHint: <#T##String#>))//13
+//        ]
+//        
+//    
+//    ]
     @EnvironmentObject var controller: Buttons
-    @State var value = ""
-    @State var value2 = ""
-    @State var tester = false
     
     var body: some View {
             GeometryReader
             {geometry in
                 VStack
                 {
-                    AnswerCheckerView(geometry: geometry)
-                    HintView(geometry: geometry)
-                    Text("Switcher")
-                        .onTapGesture
+                    Rectangle()
+                        .frame(width: geometry.size.width, height: geometry.size.height/10)
+                        .foregroundColor(.orange)
+                        .overlay(Text("CROSSYWORDZ").font(.headline))
+                    HStack
                     {
-                            self.controller.right.toggle()
+                        Rectangle()
+                        .foregroundColor(.blue)
+                        .frame(width: geometry.size.width/3)
+                        .overlay(Text("Switch"))
+                        .onTapGesture
+                        {
+                                    self.controller.right.toggle()
+                        }
+                        Rectangle()
+                        .frame(width: geometry.size.width/3)
+                        .foregroundColor(.yellow)
+                        .overlay(HintView(geometry: geometry))
+                        Rectangle()
+                        .frame(width: geometry.size.width/3)
+                        .foregroundColor(.green)
+                        .overlay(AnswerCheckerView(geometry: geometry))
+
                     }
+                    .frame(width: geometry.size.width, height: geometry.size.height/10)
+
+
                     ForEach(self.crossword1, id: \.self)
                     {line in
                         HStack
@@ -40,7 +257,11 @@ struct ContentView: View {
                             }
                         }
                     }
+                    Spacer()
+                    
                 }
+                .edgesIgnoringSafeArea(.all)
+                .background(LinearGradient(gradient: Gradient(colors: [Color("GradeOne"), Color("GradTwo"), Color("GradThree")]), startPoint: .top, endPoint: .bottom))
             }
         }
 
@@ -82,26 +303,32 @@ struct WordCellView: View {
             .overlay(VStack
             {
                Spacer()
+            
                HStack
                 {
                     Spacer()
                     if self.row != 0 && self.col != 0
                     {
-                        TextField("", text: self.$userInput, onEditingChanged: { (changed) in
-                           if changed
-                           {
-                               print("Editing")
-                            
-                           }
-                           else
-                           {
-                                print("Changed")
-                                self.ChangeCell()
-                                self.AnswerCheck()
-                           }
+                        TextField("", text: self.$userInput, onEditingChanged:
+                        { (changed) in
+                               if changed
+                               {
+                                       print("Editing")
+                                
+                               }
+                               else
+                               {
+                                    if self.userInput != ""
+                                    {
+                                        print(self.userInput)
+                                        print("Changed")
+//                                        self.ChangeCell()
+                                        self.AnswerCheck()
+                                    }
+                               }
                         })
-                            .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row)
-                            { content in
+                        .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row)
+                        { content in
                             content.introspectTextField
                             { textField in
                                 textField.becomeFirstResponder()
@@ -118,16 +345,20 @@ struct WordCellView: View {
 
             }, alignment: .center)//LetterView(letter: self.letter, active: self.active))
             .frame(width: geometry.size.width/10, height: geometry.size.height/20)
-            .if(self.selected()) { content in
+            .if(self.selected())
+            { content in
                 content.modifier(HighlightRowORCol())
             }
-            .if(self.focused()) { content in
+            .if(self.focused())
+            { content in
                 content.modifier(HighlightSelf())
             }
-            .if(self.CheckRight()) { content in
+            .if(self.CheckRight())
+            { content in
                 content.modifier(CorrectAnswerHighlight())
             }
-            .if(self.CheckWrong()) { content in
+            .if(self.CheckWrong())
+            { content in
                 content.modifier(WrongAnswerHighlight())
             }
             .onTapGesture
@@ -135,6 +366,7 @@ struct WordCellView: View {
                 self.SetHint()
                 self.controller.colSelected = self.col
                 self.controller.rowSelected = self.row
+
                 self.userInput = ""
                 self.AnswerCheck()
 
@@ -179,7 +411,8 @@ struct WordCellView: View {
     }
     func ChangeCell()
     {
-        if self.userInput.count != 0
+        print(self.userInput)
+        if !self.userInput.isEmpty
         {
             if !self.controller.right
             {
@@ -245,7 +478,8 @@ struct WordCellView: View {
         
     }
 }
-struct HintView: View {
+struct HintView: View
+{
     
     @EnvironmentObject var controller: Buttons
     var geometry: GeometryProxy
@@ -290,9 +524,10 @@ struct AnswerCheckerView: View {
     var body: some View
     {
         Text("Check Answers")
-            .onTapGesture {
+            .onTapGesture
+            {
                 self.controller.showWrong.toggle()
-        }
+            }
     }
 
 }
