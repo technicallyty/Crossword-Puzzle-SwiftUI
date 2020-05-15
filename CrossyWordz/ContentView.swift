@@ -234,7 +234,8 @@ struct ContentView: View {
                         .overlay(Text("Switch"))
                         .onTapGesture
                         {
-                                    self.controller.right.toggle()
+                        
+                            self.controller.right.toggle()
                         }
                         Rectangle()
                         .frame(width: geometry.size.width/3)
@@ -248,11 +249,11 @@ struct ContentView: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height/10)
 
-                    VStack(spacing: 3)
+                    ScrollView
                     {
                         ForEach(self.crossword2, id: \.self)
                         {line in
-                            HStack(spacing: 3)
+                            HStack(spacing: 2)
                             {
                                 ForEach(line, id: \.self )
                                 {cellInf in
@@ -261,12 +262,13 @@ struct ContentView: View {
                             }
                         }
                     }
-                    
+                    .keyboardResponsive()
                     Spacer()
                     
                 }
                 .edgesIgnoringSafeArea(.all)
                 .background(LinearGradient(gradient: Gradient(colors: [Color("GradOne"), Color("GradTwo"), Color("GradThree")]), startPoint: .top, endPoint: .bottom))
+            
             }
         }
 
@@ -304,7 +306,7 @@ struct WordCellView: View {
     
     var body: some View {
         Rectangle()
-            .foregroundColor(self.active == true ? Color(.blue) : Color(.black))
+            .foregroundColor(self.active == true ? Color(.white) : Color(.black))
             .overlay(VStack
             {
                Spacer()
@@ -562,24 +564,52 @@ extension View {
 struct HighlightSelf: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .border(Color.purple, width: 4)
+            .border(Color.purple, width: 2)
     }
 }
 struct HighlightRowORCol: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .border(Color.blue, width: 6)
+            .border(Color.blue, width: 2)
     }
 }
 struct WrongAnswerHighlight: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .border(Color.red, width: 6)
+            .border(Color.red, width: 2)
     }
 }
 struct CorrectAnswerHighlight: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .border(Color.green, width: 6)
+            .border(Color.green, width: 2)
     }
+}
+
+
+struct KeyboardResponsiveModifier: ViewModifier {
+  @State private var offset: CGFloat = 0
+
+  func body(content: Content) -> some View {
+    content
+      .padding(.bottom, offset)
+      .onAppear {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
+          let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+          let height = value.height+85
+          let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
+          self.offset = height - (bottomInset ?? 0)
+        }
+
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notif in
+          self.offset = 0
+        }
+    }
+  }
+}
+
+extension View {
+  func keyboardResponsive() -> ModifiedContent<Self, KeyboardResponsiveModifier> {
+    return modifier(KeyboardResponsiveModifier())
+  }
 }
