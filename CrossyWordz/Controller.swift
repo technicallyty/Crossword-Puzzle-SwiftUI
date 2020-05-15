@@ -16,8 +16,28 @@ class Buttons: ObservableObject
       @Published var rowSelected = -1
       @Published var colSelected = -1
       @Published var hint = HVWords(rowWord: "", colWord: "", rowWordHint: "", colWordHint: "")
-    @Published var catCrossWord = [[false,false,false],[nil,false,nil],[false,false,false]]
+    @Published var catCrossWord1 = [[false,false,false],[nil,false,nil],[false,false,false]]
+    @Published var catCrossWord2 =
+        [
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false],
+          [nil,false,nil,false,false,false,false,false,false,false,nil,false,nil],
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false],
+          [nil,false,nil,false,nil,false,false,false,false,false,nil,false,nil],
+          [false,false,false,false,false,false,false,nil,false,nil,false,false,false],
+          [false,false,false,false,nil,false,nil,false,false,false,false,false,false],
+          [false,nil,false,nil,false,false,false,false,false,nil,false,nil,false],
+          [false,false,false,false,false,false,nil,false,nil,false,false,false,false],
+          [false,false,false,nil,false,nil,false,false,false,false,false,false,false],
+          [nil,false,nil,false,false,false,false,false,nil,nil,nil,false,nil],
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false],
+          [nil,false,nil,false,false,false,false,false,false,false,nil,false,nil],
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false]
+        ]
+
     @Published var showWrong = false
+    @Published var colWordBeingDisplayed = "nothin"
+    @Published var rowWordBeingDisplayed = "nothin"
+
 
 
     
