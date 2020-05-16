@@ -325,6 +325,7 @@ struct WordCellView: View {
                                {
                                        print("Editing")
                                 
+                                
                                }
                                else
                                {
@@ -347,6 +348,7 @@ struct WordCellView: View {
                         .onReceive(self.userInput.publisher.collect())
                         {
                             self.userInput = String($0.prefix(1)).uppercased()
+                            
                         }
                     }
                     Spacer()
