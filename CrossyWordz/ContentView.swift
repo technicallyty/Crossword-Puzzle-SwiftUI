@@ -251,16 +251,19 @@ struct ContentView: View {
 
                     ScrollView
                     {
-                        ForEach(self.crossword2, id: \.self)
-                        {line in
-                            HStack(spacing: 2)
-                            {
-                                ForEach(line, id: \.self )
-                                {cellInf in
-                                    WordCellView(cellInformation: cellInf, geometry: geometry)
+                        VStack(spacing: 1){
+                            ForEach(self.crossword2, id: \.self)
+                            {line in
+                                HStack(spacing: 2)
+                                {
+                                    ForEach(line, id: \.self )
+                                    {cellInf in
+                                        WordCellView(cellInformation: cellInf, geometry: geometry)
+                                    }
                                 }
                             }
                         }
+
                     }
                     .keyboardResponsive()
                     Spacer()
