@@ -10,8 +10,8 @@ import SwiftUI
 class Buttons: ObservableObject
 {
 
-      @Published var rowLimit = 3
-      @Published var colLimit = 3
+      @Published var rowLimit = 13
+      @Published var colLimit = 13
       @Published var right = true
       @Published var rowSelected = -1
       @Published var colSelected = -1

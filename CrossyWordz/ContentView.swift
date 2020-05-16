@@ -325,21 +325,23 @@ struct WordCellView: View {
                         { (changed) in
                                if changed
                                {
-                                       print("Editing")
-                                
+                                        if self.userInput != ""
+                                        {
+                                            print(self.userInput)
+                                            print("Changed")
+                                            self.ChangeCell()
+                                            self.AnswerCheck()
+                                        }
                                 
                                }
                                else
                                {
                                     if self.userInput != ""
                                     {
-                                        print(self.userInput)
-                                        print("Changed")
-//                                        self.ChangeCell()
                                         self.AnswerCheck()
                                     }
                                }
-                        })
+                        }).font(.system(size: 14))
                         .if(self.controller.colSelected == self.col && self.controller.rowSelected == self.row)
                         { content in
                             content.introspectTextField
@@ -350,6 +352,7 @@ struct WordCellView: View {
                         .onReceive(self.userInput.publisher.collect())
                         {
                             self.userInput = String($0.prefix(1)).uppercased()
+                            
                             
                         }
                     }
