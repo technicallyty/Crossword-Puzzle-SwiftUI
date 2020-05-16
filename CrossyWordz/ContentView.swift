@@ -317,7 +317,7 @@ struct WordCellView: View {
                HStack
                 {
                     Spacer()
-                    if self.row != 0 && self.col != 0
+                    if self.active //self.row != 0 && self.col != 0
                     {
                         TextField("  ", text: self.$userInput, onEditingChanged:
                         { (changed) in
@@ -388,7 +388,7 @@ struct WordCellView: View {
     }
     func selected() -> Bool
     {
-        if self.row != 0 && self.col != 0
+        if self.active
         {
             if self.controller.right == true
             {
@@ -409,7 +409,7 @@ struct WordCellView: View {
     }
     func focused() -> Bool
     {
-        if self.row != 0 && self.col != 0
+        if self.active
         {
             if self.controller.rowSelected == self.row && self.controller.colSelected == self.col
             {
@@ -446,7 +446,7 @@ struct WordCellView: View {
     }
     func AnswerCheck()
     {
-        if self.row != 0 && self.col != 0
+        if self.active
         {
             if self.character.uppercased() == self.userInput
             {
@@ -461,7 +461,7 @@ struct WordCellView: View {
     }
     func CheckRight() -> Bool
     {
-        if self.row != 0 && self.col != 0
+        if self.active
         {
             if self.controller.showWrong
             {
@@ -476,7 +476,7 @@ struct WordCellView: View {
     }
     func CheckWrong() -> Bool
     {
-        if self.row != 0 && self.col != 0
+        if self.active
         {
             if self.controller.showWrong
             {
