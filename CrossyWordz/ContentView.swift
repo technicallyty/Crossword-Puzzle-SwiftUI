@@ -293,6 +293,7 @@ struct WordCellView: View {
         self.row = cellInformation.rowNum
         self.col = cellInformation.colNum
         self.cellHint = cellInformation.HorVert
+        self.wordNum = cellInformation.firstLetter
     }
     @EnvironmentObject var controller: Buttons
     var active = false
@@ -304,6 +305,7 @@ struct WordCellView: View {
     var row: Int
     var col: Int
     var cellHint: HVWords
+    var wordNum: Int
 
     
     
@@ -355,7 +357,20 @@ struct WordCellView: View {
                 }
                 Spacer()
 
-            }, alignment: .center)//LetterView(letter: self.letter, active: self.active))
+            }, alignment: .center)
+            .overlay(VStack(spacing: 0)
+        {
+            HStack
+            {
+                if self.wordNum != 0
+                {
+                   Text("\(wordNum)").font(.system(size: 10))
+                }
+                
+                Spacer()
+            }
+            Spacer()
+        })//LetterView(letter: self.letter, active: self.active))
             .frame(width: geometry.size.width/15, height: geometry.size.height/25)
             .if(self.selected())
             { content in
