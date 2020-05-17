@@ -219,6 +219,7 @@ struct ContentView: View {
 
     
     var body: some View {
+
             let drag = DragGesture()
             .onEnded {
                 if $0.translation.width < -100 {
@@ -314,7 +315,8 @@ struct ContentView: View {
             
             
         }
-
+    }
+    
     
 }
 
@@ -324,10 +326,9 @@ struct WordCellView: View {
     init(cellInformation: cellInfo, geometry: GeometryProxy) {
         _character = State(initialValue: cellInformation.letter)
         _tag = State(initialValue: cellInformation.gridNumber)
-
+        
         self.geometry = geometry
-        if cellInformation.letter != "0"
-        {
+        if cellInformation.letter != "0" {
             active = true
         }
         self.row = cellInformation.rowNum
@@ -346,6 +347,7 @@ struct WordCellView: View {
     var col: Int
     var cellHint: HVWords
     var wordNum: Int
+
 
     
     
@@ -435,17 +437,17 @@ struct WordCellView: View {
             {
                 self.controller.rowWordBeingDisplayed = self.cellHint.rowWord
                 self.controller.colWordBeingDisplayed = self.cellHint.colWord
-
                 self.SetHint()
                 self.controller.colSelected = self.col
                 self.controller.rowSelected = self.row
 
                 self.userInput = ""
                 self.AnswerCheck()
-
-            }
-            
+                
+        }
+        
     }
+
     func selected() -> Bool
     {
         if self.active
@@ -467,6 +469,7 @@ struct WordCellView: View {
         }
         return false
     }
+
     func focused() -> Bool
     {
         if self.active
@@ -478,8 +481,7 @@ struct WordCellView: View {
         }
         return false
     }
-    func SetHint()
-    {
+    func SetHint() {
         self.controller.hint = self.cellHint
     }
     func ChangeCell()
@@ -502,10 +504,12 @@ struct WordCellView: View {
                     {
                         self.controller.colSelected = self.controller.colSelected + 1
                     }
+
                 }
             }
         }
         
+
 
     }
     func AnswerCheck()
@@ -519,9 +523,10 @@ struct WordCellView: View {
             else
             {
                 self.controller.catCrossWord2[self.row - 1][self.col - 1] = false
+
             }
         }
-
+        
     }
     func CheckRight() -> Bool
     {
@@ -550,7 +555,7 @@ struct WordCellView: View {
                 }
             }
         }
-
+        
         return false
         
     }
@@ -561,66 +566,56 @@ struct HintView: View
     @EnvironmentObject var controller: Buttons
     var geometry: GeometryProxy
     
-    var body: some View
-    {
-        VStack
-        {
-                if self.controller.right == true
-                {
-                    if self.controller.hint.rowWordHint == "0"
-                    {
+    var body: some View {
+        VStack {
+                if self.controller.right == true {
+                    if self.controller.hint.rowWordHint == "0" {
                         Text("")
                     }
-                    else
-                    {
+                    else {
                         Text(self.controller.hint.rowWordHint)
                     }
                 }
-                else
-                {
-                    if self.controller.hint.colWordHint == "0"
-                    {
+                else {
+                    if self.controller.hint.colWordHint == "0" {
                         Text("")
                     }
-                    else
-                    {
+                    else {
                         Text(self.controller.hint.colWordHint)
                     }
                 }
                 
         }
-
+        
     }
-
+    
 }
 struct AnswerCheckerView: View {
     
     @EnvironmentObject var controller: Buttons
     var geometry: GeometryProxy
     
-    var body: some View
-    {
+    var body: some View {
         Text("Check Answers")
             .onTapGesture
             {
                 self.controller.showWrong.toggle()
             }
     }
-
+    
 }
 
 
 extension String
 {
-    subscript(i: Int) -> String
-    {
+    subscript(i: Int) -> String {
         return String(self[index(startIndex, offsetBy: i)])
     }
 }
 
 
 extension View {
-   func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
+    func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
         if conditional {
             return AnyView(content(self))
         } else {
