@@ -37,6 +37,10 @@ class Buttons: ObservableObject
     @Published var showWrong = false
     @Published var colWordBeingDisplayed = "nothin"
     @Published var rowWordBeingDisplayed = "nothin"
+    @Published var showMenu = false
+    @Published var goNext = true
+    @Published var music = true
+
 
 
 

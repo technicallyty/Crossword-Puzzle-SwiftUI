@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5BF9AEA6E40E74A28FC93C3D /* Pods_CrossyWordz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645E4756188B2C4C9F9A12DD /* Pods_CrossyWordz.framework */; };
 		7A7531FD2451D80100C5DD75 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7531FC2451D80100C5DD75 /* Controller.swift */; };
+		7ACFB49E2470B6AD008F5966 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACFB49D2470B6AD008F5966 /* Options.swift */; };
+		7ACFB4A02470E35E008F5966 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACFB49F2470E35E008F5966 /* PlaySound.swift */; };
+		7ACFB4A62470EB34008F5966 /* Angevin_120_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7ACFB4A52470EB34008F5966 /* Angevin_120_loop.mp3 */; };
 		B4BFAC9097D50030A704E9C5 /* Pods_CrossyWordz_CrossyWordzUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7820D692126FAFF8D8427621 /* Pods_CrossyWordz_CrossyWordzUITests.framework */; };
 		D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14A244E93B9005585F5 /* AppDelegate.swift */; };
 		D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464A14C244E93B9005585F5 /* SceneDelegate.swift */; };
@@ -47,6 +50,9 @@
 		645E4756188B2C4C9F9A12DD /* Pods_CrossyWordz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossyWordz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7820D692126FAFF8D8427621 /* Pods_CrossyWordz_CrossyWordzUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossyWordz_CrossyWordzUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7531FC2451D80100C5DD75 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		7ACFB49D2470B6AD008F5966 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		7ACFB49F2470E35E008F5966 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		7ACFB4A52470EB34008F5966 /* Angevin_120_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Angevin_120_loop.mp3; path = ../../../../../Downloads/Angevin_120_loop.mp3; sourceTree = "<group>"; };
 		B9BDF427C9B622806D1FB794 /* Pods-CrossyWordzTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossyWordzTests.debug.xcconfig"; path = "Target Support Files/Pods-CrossyWordzTests/Pods-CrossyWordzTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D464A147244E93B9005585F5 /* CrossyWordz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossyWordz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D464A14A244E93B9005585F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7ACFB4A32470EAED008F5966 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7ACFB4A52470EB34008F5966 /* Angevin_120_loop.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		D464A13E244E93B9005585F5 = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +148,13 @@
 				D464A14A244E93B9005585F5 /* AppDelegate.swift */,
 				D464A14C244E93B9005585F5 /* SceneDelegate.swift */,
 				D464A14E244E93B9005585F5 /* ContentView.swift */,
+				7ACFB49D2470B6AD008F5966 /* Options.swift */,
+				7ACFB49F2470E35E008F5966 /* PlaySound.swift */,
 				7A7531FC2451D80100C5DD75 /* Controller.swift */,
 				D464A150244E93B9005585F5 /* Assets.xcassets */,
 				D464A155244E93B9005585F5 /* LaunchScreen.storyboard */,
 				D464A158244E93B9005585F5 /* Info.plist */,
+				7ACFB4A32470EAED008F5966 /* Sounds */,
 				D464A152244E93B9005585F5 /* Preview Content */,
 			);
 			path = CrossyWordz;
@@ -289,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D464A157244E93B9005585F5 /* LaunchScreen.storyboard in Resources */,
+				7ACFB4A62470EB34008F5966 /* Angevin_120_loop.mp3 in Resources */,
 				D464A154244E93B9005585F5 /* Preview Assets.xcassets in Resources */,
 				D464A151244E93B9005585F5 /* Assets.xcassets in Resources */,
 			);
@@ -419,8 +437,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A7531FD2451D80100C5DD75 /* Controller.swift in Sources */,
+				7ACFB4A02470E35E008F5966 /* PlaySound.swift in Sources */,
 				D464A14B244E93B9005585F5 /* AppDelegate.swift in Sources */,
 				D464A14D244E93B9005585F5 /* SceneDelegate.swift in Sources */,
+				7ACFB49E2470B6AD008F5966 /* Options.swift in Sources */,
 				D464A14F244E93B9005585F5 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

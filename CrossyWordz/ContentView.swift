@@ -216,63 +216,103 @@ struct ContentView: View {
 
     ]
     @EnvironmentObject var controller: Buttons
+
     
     var body: some View {
-            GeometryReader
-            {geometry in
-                VStack
-                {
-                    Rectangle()
-                        .frame(width: geometry.size.width, height: geometry.size.height/10)
-                        .foregroundColor(.orange)
-                        .overlay(Text("CROSSYWORDZ").font(.headline))
-                    HStack
-                    {
-                        Rectangle()
-                        .foregroundColor(.blue)
-                        .frame(width: geometry.size.width/3)
-                        .overlay(Text("Switch"))
-                        .onTapGesture
-                        {
-                        
-                            self.controller.right.toggle()
-                        }
-                        Rectangle()
-                        .frame(width: geometry.size.width/3)
-                        .foregroundColor(.yellow)
-                        .overlay(HintView(geometry: geometry))
-                        Rectangle()
-                        .frame(width: geometry.size.width/3)
-                        .foregroundColor(.green)
-                        .overlay(AnswerCheckerView(geometry: geometry))
-
+            let drag = DragGesture()
+            .onEnded {
+                if $0.translation.width < -100 {
+                    withAnimation {
+                        self.controller.showMenu = false
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height/10)
+                }
+            }
+            return GeometryReader
+            {geometry in
 
-                    ScrollView
+
+                    VStack
                     {
-                        VStack(spacing: 1){
-                            ForEach(self.crossword2, id: \.self)
-                            {line in
-                                HStack(spacing: 2)
+                        Rectangle()
+                            .frame(width: geometry.size.width, height: geometry.size.height/10)
+                            .foregroundColor(.orange)
+                            .overlay(Text("CROSSYWORDZ").font(.headline))
+                            .overlay(VStack
                                 {
-                                    ForEach(line, id: \.self )
-                                    {cellInf in
-                                        WordCellView(cellInformation: cellInf, geometry: geometry)
+                                    HStack{
+                                        Spacer()
+                                        Image(systemName: "line.horizontal.3")
+                                        .imageScale(.large)
+                                            .onTapGesture {
+                                                withAnimation
+                                                {
+                                                    self.controller.showMenu.toggle()
+                                                }
+                                        }
+                                    .padding()
+                                    }.padding(.top, 40)
+                                    Spacer()
+                            })
+                            HStack
+                            {
+                                Rectangle()
+                                .foregroundColor(.blue)
+                                .frame(width: geometry.size.width/3)
+                                .overlay(Text("Switch"))
+                                .onTapGesture
+                                {
+                                
+                                    self.controller.right.toggle()
+                                }
+                                Rectangle()
+                                .frame(width: geometry.size.width/3)
+                                .foregroundColor(.yellow)
+                                .overlay(HintView(geometry: geometry))
+                                Rectangle()
+                                .frame(width: geometry.size.width/3)
+                                .foregroundColor(.green)
+                                .overlay(AnswerCheckerView(geometry: geometry))
+
+                            }
+                            .frame(width: geometry.size.width, height: geometry.size.height/10)
+
+                            ScrollView
+                            {
+                                VStack(spacing: 1){
+                                    ForEach(self.crossword2, id: \.self)
+                                    {line in
+                                        HStack(spacing: 2)
+                                        {
+                                            ForEach(line, id: \.self )
+                                            {cellInf in
+                                                WordCellView(cellInformation: cellInf, geometry: geometry)
+                                            }
+                                        }
                                     }
                                 }
-                            }
-                        }
 
+                            }
+                            .keyboardResponsive()
+                            Spacer()
+                    }.frame(width: geometry.size.width, height: geometry.size.height)
+                        .offset(x: self.controller.showMenu ? geometry.size.width/2 : 0)
+                        .disabled(self.controller.showMenu ? true : false)
+                    if self.controller.showMenu {
+                    MenuView()
+                        .frame(width: geometry.size.width/2)
+                        .transition(.move(edge: .leading))
                     }
-                    .keyboardResponsive()
-                    Spacer()
+                    
                     
                 }
+                .gesture(drag)
                 .edgesIgnoringSafeArea(.all)
                 .background(LinearGradient(gradient: Gradient(colors: [Color("GradOne"), Color("GradTwo"), Color("GradThree")]), startPoint: .top, endPoint: .bottom))
+            .onAppear(perform: {playSound(sound: "Angevin_120_loop", type: "mp3")
+                audioPlayer?.numberOfLoops = -1
+            })
             
-            }
+            
         }
 
     
@@ -445,23 +485,27 @@ struct WordCellView: View {
     func ChangeCell()
     {
         print(self.userInput)
-        if !self.userInput.isEmpty
+        if self.controller.goNext
         {
-            if !self.controller.right
+            if !self.userInput.isEmpty
             {
-                if self.controller.rowLimit != self.controller.rowSelected
+                if !self.controller.right
                 {
-                    self.controller.rowSelected = self.controller.rowSelected + 1
+                    if self.controller.rowLimit != self.controller.rowSelected
+                    {
+                        self.controller.rowSelected = self.controller.rowSelected + 1
+                    }
                 }
-            }
-            if self.controller.right
-            {
-                if self.controller.colLimit != self.controller.colSelected
+                if self.controller.right
                 {
-                    self.controller.colSelected = self.controller.colSelected + 1
+                    if self.controller.colLimit != self.controller.colSelected
+                    {
+                        self.controller.colSelected = self.controller.colSelected + 1
+                    }
                 }
             }
         }
+        
 
     }
     func AnswerCheck()
