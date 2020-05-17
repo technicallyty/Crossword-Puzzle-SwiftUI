@@ -10,14 +10,38 @@ import SwiftUI
 class Buttons: ObservableObject
 {
 
-      @Published var rowLimit = 3
-      @Published var colLimit = 3
+      @Published var rowLimit = 13
+      @Published var colLimit = 13
       @Published var right = true
       @Published var rowSelected = -1
       @Published var colSelected = -1
       @Published var hint = HVWords(rowWord: "", colWord: "", rowWordHint: "", colWordHint: "")
-    @Published var catCrossWord = [[false,false,false],[nil,false,nil],[false,false,false]]
+    @Published var catCrossWord1 = [[false,false,false],[nil,false,nil],[false,false,false]]
+    @Published var catCrossWord2 =
+        [
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false],
+          [nil,false,nil,false,false,false,false,false,false,false,nil,false,nil],
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false],
+          [nil,false,nil,false,nil,false,false,false,false,false,nil,false,nil],
+          [false,false,false,false,false,false,false,nil,false,nil,false,false,false],
+          [false,false,false,false,nil,false,nil,false,false,false,false,false,false],
+          [false,nil,false,nil,false,false,false,false,false,nil,false,nil,false],
+          [false,false,false,false,false,false,nil,false,nil,false,false,false,false],
+          [false,false,false,nil,false,nil,false,false,false,false,false,false,false],
+          [nil,false,nil,false,false,false,false,false,nil,nil,nil,false,nil],
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false],
+          [nil,false,nil,false,false,false,false,false,false,false,nil,false,nil],
+          [false,false,false,false,false,nil,false,nil,false,false,false,false,false]
+        ]
+
     @Published var showWrong = false
+    @Published var colWordBeingDisplayed = "nothin"
+    @Published var rowWordBeingDisplayed = "nothin"
+    @Published var showMenu = false
+    @Published var goNext = true
+    @Published var music = true
+
+
 
 
     
