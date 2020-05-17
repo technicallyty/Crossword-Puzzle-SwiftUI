@@ -318,7 +318,7 @@ struct ContentView: View {
     }
     
     
-}
+
 
 
 struct WordCellView: View {
